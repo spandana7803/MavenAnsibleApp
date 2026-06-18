@@ -1,15 +1,16 @@
--name : deploy to tomact
-hosts : web
-becomes : yes
-tasks :
- -name : copy warfile to tomcat
- copy :
- src : "/var/snap/jenkins/5047/workspace/MavenAnsibleApp/target/MavenAnsibleApp.war"
- dest : "/opt/tomcat/bin/mavenAnsibleApp.war"
- remote_src : no
- -name :restart tomcat
- shell : |
- /opt/tomcat/bin/shutdown.sh ||true
- sleep 5
- /opt/tomcat/bin/startup.sh
- 
+---
+- name: deploy to tomact
+  hosts: web
+  become: yes
+  tasks:
+    - name: copy warfile to tomcat
+      copy:
+       src: "/var/snap/jenkins/5047/workspace/MavenAnsibleApp/target/MavenAnsibleApp.war"
+       dest: "/opt/tomcat/webapps/mavenAnsibleApp.war"
+       remote_src: no
+    - name: restart tomcat
+      shell: |
+        /opt/tomcat/bin/shutdown.sh || true
+        sleep 5
+        /opt/tomcat/bin/startup.sh
+
