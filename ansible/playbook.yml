@@ -4,7 +4,7 @@ becomes : yes
 tasks :
  -name : copy warfile to tomcat
  copy :
- src : "/var/snap/jenkins/5013/workspace/MavenAnsibleApp/target/MavenAnsible.war"
+ src : "/var/snap/jenkins/5047/workspace/MavenAnsibleApp/target/MavenAnsibleApp.war"
  dest : "/opt/tomcat/bin/mavenAnsibleApp.war"
  remote_src : no
  -name :restart tomcat

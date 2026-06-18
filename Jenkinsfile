@@ -24,7 +24,7 @@ steps{
  stage('Archive')
  {
  steps{
-  archiveArtifact artifacts:'target/*.war',fingerprint:true
+  archiveArtifacts artifacts:'target/*.war',fingerprint:true
   }
   }
   stage('Deploy')
